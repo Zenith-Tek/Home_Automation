@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "home_automation",
-    "project_version":    "db5974e-dirty",
+    "project_version":    "8954f74-dirty",
     "project_path":       "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation",
     "idf_path":           "/home/zenithtek/esp/esp-idf",
     "build_dir":          "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build",

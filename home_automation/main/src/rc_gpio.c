@@ -1,6 +1,4 @@
 #include "rc_gpio.h"
-#include <stdio.h>
-#include <inttypes.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
@@ -12,97 +10,83 @@
 static const char *TAG_GPIO = "RC_GPIO";
 static QueueHandle_t gpio_evt_queue = NULL;
 
-// Arrays to handle multiple GPIOs easily
-static const int RELAY_PINS[] = {
-    RELAY_GPIO_ONB, RELAY_GPIO_1, RELAY_GPIO_2, RELAY_GPIO_3, 
-    RELAY_GPIO_4, RELAY_GPIO_5, RELAY_GPIO_6, RELAY_GPIO_7, RELAY_GPIO_8
-};
+// Arrays to handle multiple GPIOs (Must match the order in utils.c)
+static const int SWITCH_PINS[] = {0, 36, 39, 34, 35, 32, 33, 25, 26};
+static const int RELAY_PINS[]  = {13, 14, 4, 16, 17, 5, 18, 19, 21};
 
-static const int SWITCH_PINS[] = {
-    SWITCH_GPIO_ONB_1, SWITCH_GPIO_1, SWITCH_GPIO_2, SWITCH_GPIO_3, 
-    SWITCH_GPIO_4, SWITCH_GPIO_5, SWITCH_GPIO_6, SWITCH_GPIO_7, SWITCH_GPIO_8
-};
-
-#define NUM_RELAYS (sizeof(RELAY_PINS) / sizeof(RELAY_PINS[0]))
-
-// ISR handler - push GPIO number to queue
+// ISR handler - pushes GPIO number to queue
 static void IRAM_ATTR gpio_isr_handler(void* arg) {
     uint32_t gpio_num = (uint32_t) arg;
     xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
 }
 
-// Single task to handle all switch events
+// THE SINGLE TASK to handle all switch events
 static void gpio_event_task(void* arg) {
     uint32_t io_num;
     while (1) {
         if (xQueueReceive(gpio_evt_queue, &io_num, portMAX_DELAY)) {
-            // Debounce delay
-            vTaskDelay(pdMS_TO_TICKS(50));
+            // 1. Debounce delay
+            vTaskDelay(pdMS_TO_TICKS(80));
 
-            // Identify which relay matches this switch
-            int relay_index = -1;
-            for (int i = 0; i < NUM_RELAYS; i++) {
-                if (io_num == SWITCH_PINS[i]) {
-                    relay_index = i;
-                    break;
-                }
-            }
-
-            if (relay_index != -1) {
-                // Toggle Logic
-                int current_level = gpio_get_level(RELAY_PINS[relay_index]);
-                int new_state = !current_level;
-
-                // 1. Update Hardware
-                gpio_set_level(RELAY_PINS[relay_index], new_state);
+            // 2. Double-check if still pressed (Logic 0 because of 10K pull-ups)
+            if (gpio_get_level(io_num) == 0) {
                 
-                // 2. Update local state array (defined in supabase.c)
-                relay_states[relay_index] = new_state;
+                // Identify which relay matches this switch index
+                int relay_idx = -1;
+                for (int i = 0; i < 9; i++) {
+                    if (io_num == SWITCH_PINS[i]) {
+                        relay_idx = i;
+                        break;
+                    }
+                }
 
-                // 3. Update Supabase (Relay ID in DB starts at 1, so we use index + 1)
-                update_relay_state_in_supabase(relay_index + 1, new_state);
+                if (relay_idx != -1) {
+                    // Toggle current state
+                    int new_state = !relay_states[relay_idx];
 
-                ESP_LOGI(TAG_GPIO, "Switch GPIO %d toggled Relay %d (GPIO %d) to %d", 
-                         (int)io_num, relay_index + 1, RELAY_PINS[relay_index], new_state);
+                    // Execute change via utils logic
+                    process_gpios((int)io_num);
+
+                    // LOGGING: Fixed the format error here (%d for an integer)
+                    ESP_LOGI(TAG_GPIO, "Switch IO%d toggled Relay %d to %d", 
+                             (int)io_num, relay_idx + 1, new_state);
+                }
+
+                // 3. Wait for button release to prevent bouncing
+                while(gpio_get_level(io_num) == 0) {
+                    vTaskDelay(pdMS_TO_TICKS(20));
+                }
             }
         }
     }
 }
 
 void setup_gpios(void) {
-
     set_relay_gpios_out();
     set_switch_gpios_in();
-
-    ESP_LOGI(TAG_GPIO, "Successfully initialized %d Relays and %d Switches.", (int)NUM_RELAYS, (int)NUM_RELAYS);
+    ESP_LOGI(TAG_GPIO, "All 9 Relays and 9 Switches initialized.");
 }
 
 void set_switch_gpios_in(void) {
     gpio_config_t io_conf = {
-        .intr_type = GPIO_INTR_NEGEDGE, // Trigger on press
+        .intr_type = GPIO_INTR_NEGEDGE, // Falling edge (Pressing the button)
         .mode = GPIO_MODE_INPUT,
         .pull_up_en = GPIO_PULLUP_ENABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
     };
 
-    // Construct a bitmask of all switch pins
-    uint64_t pin_mask = 0;
-    for (int i = 0; i < NUM_RELAYS; i++) {
-        pin_mask |= (1ULL << SWITCH_PINS[i]);
+    uint64_t mask = 0;
+    for (int i = 0; i < 9; i++) {
+        mask |= (1ULL << SWITCH_PINS[i]);
     }
-
-    io_conf.pin_bit_mask = pin_mask;
+    io_conf.pin_bit_mask = mask;
     gpio_config(&io_conf);
 
-    // Create queue once
     gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
     xTaskCreate(gpio_event_task, "gpio_event_task", 4096, NULL, 10, NULL);
 
-    // Install ISR service once
     gpio_install_isr_service(0);
-
-    // Attach handler for each switch
-    for (int i = 0; i < NUM_RELAYS; i++) {
+    for (int i = 0; i < 9; i++) {
         gpio_isr_handler_add(SWITCH_PINS[i], gpio_isr_handler, (void*) SWITCH_PINS[i]);
     }
 }
@@ -115,12 +99,10 @@ void set_relay_gpios_out(void) {
         .pull_up_en = GPIO_PULLUP_DISABLE,
     };
 
-    // Construct a bitmask of all relay pins
-    uint64_t pin_mask = 0;
-    for (int i = 0; i < NUM_RELAYS; i++) {
-        pin_mask |= (1ULL << RELAY_PINS[i]);
+    uint64_t mask = 0;
+    for (int i = 0; i < 9; i++) {
+        mask |= (1ULL << RELAY_PINS[i]);
     }
-    
-    io_conf.pin_bit_mask = pin_mask;
+    io_conf.pin_bit_mask = mask;
     gpio_config(&io_conf);
 }

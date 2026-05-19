@@ -2,6 +2,7 @@
 #include "wifi.h"
 #include "supabase.h"
 #include <time.h>
+// #include "esp_crt_bundle.h"
 
 #define TAG_1 "Provisoning"
 #define TAG_INFO "Provisoning"
@@ -19,9 +20,10 @@ void app_main()
 	print_system_memory_status();
     setup_gpios();
     connect_wifi();
+    vTaskDelay(pdMS_TO_TICKS(5000)); // Wait 5 seconds for IP
     initialize_sntp();
 
-    xTaskCreate(&supabase_sync_task, "Device Control Task", 8192, NULL, 5, NULL);
+    xTaskCreate(&supabase_sync_task, "Supabase Sync", 8192, NULL, 5, NULL);
 	
     xTaskCreate(&heartbeat_task, "Heartbeat Task", 8192, NULL, 3, NULL);
 }
@@ -172,7 +174,9 @@ void update_device_status(void)
         .url = url,
         .method = HTTP_METHOD_POST,
         .timeout_ms = 10000,
-        .buffer_size_tx = 1024,
+        // .buffer_size_tx = 1024,
+           .buffer_size = 2048,     // <--- ADD THIS
+    .buffer_size_tx = 1024,  // <--- ADD THIS
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
     

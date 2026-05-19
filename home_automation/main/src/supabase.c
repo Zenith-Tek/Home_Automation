@@ -2,7 +2,7 @@
 #include "esp_wifi.h"
 #include "esp_timer.h"
 #include "driver/gpio.h"
-
+#include "esp_crt_bundle.h"
 #define TAG_DB "Supabase"
 
 // Global array to store local states (matches IDs 1-9 in DB)
@@ -33,6 +33,8 @@ void fetch_relay_states_from_supabase(void) {
         .url = url,
         .method = HTTP_METHOD_GET,
         .timeout_ms = 10000,
+        .buffer_size = 2048,     // <--- ADD THIS: Increase RX buffer for headers
+        .buffer_size_tx = 1024, 
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
 
@@ -84,6 +86,9 @@ void update_relay_state_in_supabase(int relay_id, int new_state) {
         .url = url,
         .method = HTTP_METHOD_PATCH,
         .timeout_ms = 10000,
+        .buffer_size = 2048,     // <--- ADD THIS
+        .buffer_size_tx = 1024, 
+        // .crt_bundle_attach = esp_crt_bundle_attach,
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
 
@@ -130,6 +135,10 @@ void send_device_health_to_supabase(void) {
     esp_http_client_config_t config = {
         .url = url,
         .method = HTTP_METHOD_POST,
+        .buffer_size = 2048,     // <--- ADD THIS
+        .buffer_size_tx = 1024, 
+        // .crt_bundle_attach = esp_crt_bundle_attach,
+        // .skip_cert_common_name_check = true, 
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
 
