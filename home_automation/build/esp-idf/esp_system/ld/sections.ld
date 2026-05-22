@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: /media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_system/ld/sections.ld.in */
+/* Generated from: /home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_system/ld/sections.ld.in */
 
 /*
  * SPDX-FileCopyrightText: 2021 Espressif Systems (Shanghai) CO LTD

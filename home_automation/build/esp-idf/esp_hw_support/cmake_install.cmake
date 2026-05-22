@@ -39,11 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_hw_support/port/esp32/cmake_install.cmake")
+  include("/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_hw_support/port/esp32/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_hw_support/lowpower/cmake_install.cmake")
+  include("/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_hw_support/lowpower/cmake_install.cmake")
 endif()
 

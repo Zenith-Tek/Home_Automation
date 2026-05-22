@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/CMakeFiles/bootloader
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/CMakeFiles/bootloader.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/CMakeFiles/bootloader-complete.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/CMakeFiles/bootloader
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/CMakeFiles/bootloader.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/CMakeFiles/bootloader-complete.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

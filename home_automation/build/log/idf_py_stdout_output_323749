@@ -1,0 +1,174 @@
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6276
+load:0x40078000,len:15748
+load:0x40080400,len:4
+ho 8 tail 4 room 4
+load:0x40080404,len:3860
+entry 0x4008063c
+[0;32mI (30) boot: ESP-IDF v5.4.1-dirty 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time May 22 2026 09:12:21[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (32) boot: chip revision: v1.0[0m
+[0;32mI (35) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (39) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (42) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (53) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (66) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=27ce4h (163044) map[0m
+[0;32mI (145) esp_image: segment 1: paddr=00037d0c vaddr=3ff80000 size=0001ch (    28) load[0m
+[0;32mI (145) esp_image: segment 2: paddr=00037d30 vaddr=3ffb0000 size=03fa0h ( 16288) load[0m
+[0;32mI (155) esp_image: segment 3: paddr=0003bcd8 vaddr=40080000 size=04340h ( 17216) load[0m
+[0;32mI (163) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=b5c10h (744464) map[0m
+[0;32mI (418) esp_image: segment 5: paddr=000f5c38 vaddr=40084340 size=13824h ( 79908) load[0m
+[0;32mI (461) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (461) boot: Disabling RNG early entropy source...[0m
+[0;32mI (472) cpu_start: Multicore app[0m
+[0;32mI (480) cpu_start: Pro cpu start user code[0m
+[0;32mI (480) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (480) app_init: Application information:[0m
+[0;32mI (480) app_init: Project name:     home_automation[0m
+[0;32mI (485) app_init: App version:      e4fca2a-dirty[0m
+[0;32mI (489) app_init: Compile time:     May 22 2026 09:12:16[0m
+[0;32mI (494) app_init: ELF file SHA256:  03be59ddf...[0m
+[0;32mI (498) app_init: ESP-IDF:          v5.4.1-dirty[0m
+[0;32mI (503) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (507) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (511) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (515) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (521) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (526) heap_init: At 3FFB88F8 len 00027708 (157 KiB): DRAM[0m
+[0;32mI (531) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (536) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (542) heap_init: At 40097B64 len 0000849C (33 KiB): IRAM[0m
+[0;32mI (549) spi_flash: detected chip: generic[0m
+[0;32mI (551) spi_flash: flash io: dio[0m
+[0;32mI (555) main_task: Started on CPU0[0m
+[0;32mI (565) main_task: Calling app_main()[0m
+[0;32mI (565) Main: Last reboot reason: Power On[0m
+[0;32mI (565) Provisoning: ========== Chip Information ===========================================[0m
+[0;32mI (565) Provisoning: Chip model: ESP32[0m
+[0;32mI (575) Provisoning: CPU cores: 2[0m
+[0;32mI (575) Provisoning: Silicon revision: 100[0m
+[0;32mI (575) Provisoning: Flash size: 4 MB[0m
+[0;32mI (585) Provisoning: ========== Program Version ============================================[0m
+[0;32mI (585) Provisoning: [APP] Name: home_automation[0m
+[0;32mI (595) Provisoning: [APP] Version: e4fca2a-dirty[0m
+[0;32mI (595) Provisoning: [APP] Compile Date: May 22 2026[0m
+[0;32mI (605) Provisoning: [APP] Compile Time: 09:12:16[0m
+[0;32mI (605) Provisoning: ========== Heap Information ===========================================[0m
+[0;32mI (615) Provisoning: Total free heap: 276756 bytes[0m
+[0;32mI (625) Provisoning: Minimum free heap since boot: 276756 bytes[0m
+[0;32mI (625) Provisoning: Internal RAM free: 309876 bytes[0m
+[0;32mI (635) Provisoning: ========== Stack Information ==========================================[0m
+[0;32mI (635) Provisoning: Current task stack high water mark: 2068 bytes[0m
+[0;32mI (645) Provisoning: ========== Flash Partition Information ================================[0m
+[0;32mI (655) Provisoning: App partition size: 2097152 bytes[0m
+[0;32mI (655) Provisoning: =======================================================================[0m
+[0;32mI (665) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (675) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (685) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (695) gpio: GPIO[14]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (695) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (705) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (715) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (725) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (735) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (745) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (745) gpio: GPIO[25]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (755) gpio: GPIO[26]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (765) gpio: GPIO[32]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (775) gpio: GPIO[33]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (785) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (795) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (795) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (805) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (815) RC_GPIO: All 9 Relays and 9 Switches initialized.[0m
+[0;32mI (855) wifi:wifi driver task: 3ffc1eb8, prio:23, stack:6656, core=0[0m
+[0;32mI (865) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (865) wifi:wifi certification version: v7.0[0m
+[0;32mI (865) wifi:config NVS flash: enabled[0m
+[0;32mI (865) wifi:config nano formatting: disabled[0m
+[0;32mI (865) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (875) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (875) wifi:Init management short buffer num: 32[0m
+[0;32mI (885) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (885) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (895) wifi:Init static rx buffer num: 10[0m
+[0;32mI (895) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (895) wifi_init: rx ba win: 6[0m
+[0;32mI (905) wifi_init: accept mbox: 6[0m
+[0;32mI (905) wifi_init: tcpip mbox: 32[0m
+[0;32mI (905) wifi_init: udp mbox: 6[0m
+[0;32mI (905) wifi_init: tcp mbox: 6[0m
+[0;32mI (915) wifi_init: tcp tx win: 5760[0m
+[0;32mI (915) wifi_init: tcp rx win: 5760[0m
+[0;32mI (915) wifi_init: tcp mss: 1440[0m
+[0;32mI (925) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (925) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (925) WIFI_MANAGER: Already provisioned, starting Wi-Fi STA[0m
+[0;32mI (935) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (1015) wifi:mode : sta (8c:aa:b5:93:2f:c0)[0m
+[0;32mI (1015) wifi:enable tsf[0m
+[0;32mI (1015) WIFI_MANAGER: WAITING FOR WIFI_CONNECTED_EVENT[0m
+[0;32mI (3425) wifi:new:<7,0>, old:<1,0>, ap:<255,255>, sta:<7,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3435) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3435) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3455) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3575) wifi:connected with zenithtek, aid = 2, channel 7, BW20, bssid = 7c:f1:7e:d1:5b:03[0m
+[0;32mI (3575) wifi:security: WPA2-PSK, phy: bgn, rssi: -77[0m
+[0;32mI (3585) wifi:pm start, type: 1[0m
+
+[0;32mI (3585) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3615) wifi:<ba-add>idx:0 (ifx:0, 7c:f1:7e:d1:5b:03), tid:0, ssn:2, winSize:64[0m
+[0;32mI (3655) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4015) WIFI_MANAGER: Waiting for IP address from DHCP...[0m
+[0;32mI (8105) Provisioning: Connected with IP Address:192.168.0.16[0m
+[0;32mI (8105) esp_netif_handlers: sta ip: 192.168.0.16, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (8105) WIFI_MANAGER: IP address acquired! Proceeding with application setup.[0m
+[0;33mW (10025) UTILS: Switch IO34 pressed. Toggling Relay 4 to 1[0m
+[0;32mI (10025) UTILS: Relay 4 (GPIO 16) turned ON[0m
+[0;32mI (10055) wifi:<ba-add>idx:1 (ifx:0, 7c:f1:7e:d1:5b:03), tid:1, ssn:0, winSize:64[0m
+[0;32mI (11645) Supabase: Relay 4 updated to 1 in DB[0m
+[0;32mI (11655) RC_GPIO: Switch IO34 toggled Relay 4 to 1[0m
+[0;32mI (13115) Main: Initializing SNTP[0m
+[0;32mI (13115) Main: Waiting for system time to be set... (1/15)[0m
+[0;32mI (15115) Main: System time is set.[0m
+[0;32mI (15115) Supabase: Fetching relay states for retention...[0m
+[0;32mI (15125) Main: Heartbeat task started.[0m
+[0;33mW (15125) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (15125) Main: Heartbeat Payload: {"device_id":"8C:AA:B5:93:2F:C0","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-83,"uptime_seconds":14,"firmware_version":"e4fca2a-dirty","last_reboot_reason":"Power On","last_provisioned_at":null,"device_timestamp":1779432158}[0m
+[0;32mI (15155) main_task: Returned from app_main()[0m
+[1;31mE (15205) esp-tls-mbedtls: mbedtls_ssl_handshake returned -0x7780[0m
+[1;31mE (15205) esp-tls: Failed to open new connection[0m
+[1;31mE (15205) transport_base: Failed to open a new connection[0m
+[1;31mE (15215) HTTP_CLIENT: Connection failed, sock < 0[0m
+[1;31mE (15215) Main: Heartbeat failed: ESP_ERR_HTTP_CONNECT[0m
+[0;32mI (16385) Supabase: Relay 1 (GPIO 13) set to 0[0m
+[0;32mI (16385) Supabase: Relay 2 (GPIO 14) set to 1[0m
+[0;32mI (16385) Supabase: Relay 3 (GPIO 4) set to 1[0m
+[0;32mI (16385) Supabase: Relay 4 (GPIO 16) set to 1[0m
+[0;32mI (16395) Supabase: Relay 5 (GPIO 17) set to 0[0m
+[0;32mI (16395) Supabase: Relay 6 (GPIO 5) set to 0[0m
+[0;32mI (16405) Supabase: Relay 7 (GPIO 18) set to 0[0m
+[0;32mI (16405) Supabase: Relay 8 (GPIO 19) set to 0[0m
+[0;32mI (16415) Supabase: Relay 9 (GPIO 21) set to 0[0m
+[0;32mI (17715) Supabase: Fetching relay states for retention...[0m
+[0;32mI (18955) Supabase: Relay 1 (GPIO 13) set to 0[0m
+[0;32mI (18955) Supabase: Relay 2 (GPIO 14) set to 1[0m
+[0;32mI (18955) Supabase: Relay 3 (GPIO 4) set to 1[0m
+[0;32mI (18955) Supabase: Relay 4 (GPIO 16) set to 1[0m
+[0;32mI (18965) Supabase: Relay 5 (GPIO 17) set to 0[0m
+[0;32mI (18965) Supabase: Relay 6 (GPIO 5) set to 0[0m
+[0;32mI (18975) Supabase: Relay 7 (GPIO 18) set to 0[0m
+[0;32mI (18975) Supabase: Relay 8 (GPIO 19) set to 0[0m
+[0;32mI (18975) Supabase: Relay 9 (GPIO 21) set to 0[0m

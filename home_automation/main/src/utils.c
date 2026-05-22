@@ -5,6 +5,7 @@
 #include "rc_gpio.h"
 #include "esp_timer.h"
 #include "supabase.h"
+#include "nvs_flash.h"
 
 char *TAG = "UTILS";
 uint32_t tick = 0;

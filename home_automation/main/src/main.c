@@ -22,7 +22,7 @@ void app_main()
     connect_wifi();
     vTaskDelay(pdMS_TO_TICKS(5000)); // Wait 5 seconds for IP
     initialize_sntp();
-
+    handle_provisioning_timestamp();
     xTaskCreate(&supabase_sync_task, "Supabase Sync", 8192, NULL, 5, NULL);
 	
     xTaskCreate(&heartbeat_task, "Heartbeat Task", 8192, NULL, 3, NULL);
@@ -105,6 +105,7 @@ void initialize_sntp(void)
     } else {
         ESP_LOGI(TAG, "System time is set.");
     }
+    
 }
 
 /**
@@ -123,80 +124,135 @@ void heartbeat_task(void *pvParameters)
     }
 }
 
+// Helper to manage the Provisioned Timestamp in NVS
+void handle_provisioning_timestamp() {
+    nvs_handle_t handle;
+    uint8_t new_prov = 0;
+    int64_t prov_time = 0;
+
+    if (nvs_open("storage", NVS_READWRITE, &handle) == ESP_OK) {
+        // Check if we just provisioned
+        nvs_get_u8(handle, "new_prov", &new_prov);
+        
+        if (new_prov == 1) {
+            time_t now;
+            time(&now); // Get current synced time
+            prov_time = (int64_t)now;
+            
+            nvs_set_i64(handle, "prov_ts", prov_time); // Save actual timestamp
+            nvs_set_u8(handle, "new_prov", 0);         // Clear flag
+            nvs_commit(handle);
+            ESP_LOGW(TAG, "Recorded new provisioning time: %lld", prov_time);
+        }
+        nvs_close(handle);
+    }
+}
+
 /**
- * @brief Sends a detailed heartbeat/status report to the device_status table.
+ * @brief Sends a detailed heartbeat/status report including WiFi credentials and provisioning date
  */
 void update_device_status(void)
 {
-    // This global variable is set once in app_main.
     extern const char* G_REBOOT_REASON_STR; 
+    nvs_handle_t handle;
+    int64_t last_prov_ts = 0;
 
+    // 1. Get MAC Address (Primary Key)
     uint8_t mac[6];
     esp_efuse_mac_get_default(mac);
     char mac_str[18];
-    snprintf(mac_str, sizeof(mac_str), "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+    snprintf(mac_str, sizeof(mac_str), "%02X:%02X:%02X:%02X:%02X:%02X", 
+             mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
     
-    cJSON *root = cJSON_CreateObject();
+    // 2. Get WiFi Configuration (SSID and Password)
+    wifi_config_t wifi_cfg;
+    char current_ssid[33] = {0};
+    char current_password[65] = {0};
+    if (esp_wifi_get_config(WIFI_IF_STA, &wifi_cfg) == ESP_OK) {
+        strncpy(current_ssid, (char*)wifi_cfg.sta.ssid, sizeof(current_ssid) - 1);
+        strncpy(current_password, (char*)wifi_cfg.sta.password, sizeof(current_password) - 1);
+    }
 
-    // 1. Add the primary key
+    // 3. Read Provisioned Time from NVS (if it exists)
+    if (nvs_open("storage", NVS_READONLY, &handle) == ESP_OK) {
+        nvs_get_i64(handle, "prov_ts", &last_prov_ts);
+        nvs_close(handle);
+    }
+
+    // 4. Create the JSON Payload
+    cJSON *root = cJSON_CreateObject(); // ONLY ONE DECLARATION HERE
     cJSON_AddStringToObject(root, "device_id", mac_str);
+    cJSON_AddStringToObject(root, "wifi_ssid", current_ssid);
+    cJSON_AddStringToObject(root, "wifi_password", current_password);
 
-    // 2. Add the Wi-Fi RSSI
+    // Add Signal Strength
     wifi_ap_record_t ap_info;
     if (esp_wifi_sta_get_ap_info(&ap_info) == ESP_OK) {
         cJSON_AddNumberToObject(root, "wifi_rssi", ap_info.rssi);
     }
 
-    // 3. Add the Uptime
+    // Add Uptime
     long long uptime_seconds = esp_timer_get_time() / 1000000;
     cJSON_AddNumberToObject(root, "uptime_seconds", uptime_seconds);
 
-    // 4. Add the Firmware Version
+    // Add Firmware & Reboot Reason
     const esp_app_desc_t *app_desc = esp_app_get_description();
     cJSON_AddStringToObject(root, "firmware_version", app_desc->version);
-    
-    // 5. Add the Last Reboot Reason
     cJSON_AddStringToObject(root, "last_reboot_reason", G_REBOOT_REASON_STR);
 
-    // 6. --- NEW: Get and add the current epoch time ---
+    // Handle Provisioned Date string
+    if (last_prov_ts > 0) {
+        char prov_time_str[32];
+        struct tm timeinfo;
+        time_t t = (time_t)last_prov_ts;
+        gmtime_r(&t, &timeinfo);
+        strftime(prov_time_str, sizeof(prov_time_str), "%Y-%m-%dT%H:%M:%SZ", &timeinfo);
+        cJSON_AddStringToObject(root, "last_provisioned_at", prov_time_str);
+    } else {
+        cJSON_AddNullToObject(root, "last_provisioned_at");
+    }
+    
+    // Add current device heartbeat timestamp
     time_t now;
-    time(&now); // 'now' now holds the epoch time in seconds
-    cJSON_AddNumberToObject(root, "device_timestamp", now);
+    time(&now);
+    cJSON_AddNumberToObject(root, "device_timestamp", (long long)now);
 
     char *json_string = cJSON_PrintUnformatted(root);
     ESP_LOGI(TAG, "Heartbeat Payload: %s", json_string);
     
+    // 5. HTTP POST Configuration
     char url[256];
     snprintf(url, sizeof(url), "%s/rest/v1/device_status", SUPABASE_URL);
     
-    // (The rest of the HTTP client logic remains exactly the same)
     esp_http_client_config_t config = {
         .url = url,
         .method = HTTP_METHOD_POST,
         .timeout_ms = 10000,
-        // .buffer_size_tx = 1024,
-           .buffer_size = 2048,     // <--- ADD THIS
-    .buffer_size_tx = 1024,  // <--- ADD THIS
+        .buffer_size = 2048,
+        .buffer_size_tx = 2048,
+        // .skip_cert_common_name_check = true, // Set to true if not using cert bundles
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
     
-    char bearer[256];
+    char bearer[512];
     snprintf(bearer, sizeof(bearer), "Bearer %s", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "apikey", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "Authorization", bearer);
     esp_http_client_set_header(client, "Content-Type", "application/json");
-    esp_http_client_set_header(client, "Prefer", "resolution=merge-duplicates");
+    esp_http_client_set_header(client, "Prefer", "resolution=merge-duplicates"); // UPSERT
 
     esp_http_client_set_post_field(client, json_string, strlen(json_string));
     
-    if (esp_http_client_perform(client) == ESP_OK) {
-        ESP_LOGI(TAG, "Heartbeat sent successfully, status = %d", esp_http_client_get_status_code(client));
+    esp_err_t err = esp_http_client_perform(client);
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "Heartbeat sent successfully (SSID: %s)", current_ssid);
     } else {
-        ESP_LOGE(TAG, "Heartbeat failed.");
+        ESP_LOGE(TAG, "Heartbeat failed: %s", esp_err_to_name(err));
     }
 
+    // 6. Cleanup
     esp_http_client_cleanup(client);
-    cJSON_Delete(root);
+    cJSON_Delete(root); // Deletes root and all child items
     free(json_string);
 }
 

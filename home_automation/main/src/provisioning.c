@@ -3,6 +3,7 @@
 #include "wifi_provisioning/manager.h"
 #include "main.h"  
 #include "wifi.h"
+#include "nvs_flash.h"
 
 // LED status handle from main
 // extern led_status_t led_mode;
@@ -99,7 +100,7 @@ void prov_event_handler(void* arg, esp_event_base_t event_base,
             }
             case WIFI_PROV_CRED_SUCCESS:
                 ESP_LOGI(TAG_PROV, "Provisioning successful");
-                // led_mode = LED_ON;
+                set_provisioning_flag(); 
                 retries = 0;
                 break;
             case WIFI_PROV_END:
@@ -155,6 +156,16 @@ void prov_event_handler(void* arg, esp_event_base_t event_base,
         }
     }
 }
+
+void set_provisioning_flag(void) {
+    nvs_handle_t handle;
+    if (nvs_open("storage", NVS_READWRITE, &handle) == ESP_OK) {
+        nvs_set_u8(handle, "new_prov", 1); // Set flag: Just provisioned!
+        nvs_commit(handle);
+        nvs_close(handle);
+    }
+}
+
 
 void get_device_service_name(char *service_name, size_t max)
 {

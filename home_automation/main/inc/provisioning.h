@@ -23,6 +23,7 @@ extern unsigned char trigger_reprovision;  // declaration only
 
 void prov_event_handler(void* arg, esp_event_base_t event_base,
                           int32_t event_id, void* event_data);
+void set_provisioning_flag(void);
 void get_device_service_name(char *service_name, size_t max);
 esp_err_t custom_prov_data_handler(uint32_t session_id, const uint8_t *inbuf, ssize_t inlen,
                                           uint8_t **outbuf, ssize_t *outlen, void *priv_data);

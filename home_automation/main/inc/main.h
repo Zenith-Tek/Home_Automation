@@ -49,4 +49,5 @@ void print_system_memory_status();
 void initialize_sntp(void);
 void update_device_status(void);
 void heartbeat_task(void *pvParameters);
+void handle_provisioning_timestamp();
 static const char* get_reboot_reason_string(esp_reset_reason_t reason);

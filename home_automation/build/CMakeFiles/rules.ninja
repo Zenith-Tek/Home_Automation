@@ -1803,7 +1803,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S"/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation" -B"/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build"
+  command = /usr/bin/cmake --regenerate-during-build -S/home/zenithtek/Downloads/Home_Automation/home_automation -B/home/zenithtek/Downloads/Home_Automation/home_automation/build
   description = Re-running CMake...
   generator = 1
 

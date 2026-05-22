@@ -18,8 +18,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file /media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader/bootloader.elf
+    add-symbol-file /home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file /media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/home_automation.elf
+file /home/zenithtek/Downloads/Home_Automation/home_automation/build/home_automation.elf

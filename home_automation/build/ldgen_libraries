@@ -1,84 +1,84 @@
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/xtensa/libxtensa.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_gpio/libesp_driver_gpio.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_pm/libesp_pm.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mbedtls/libmbedtls.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_app_format/libesp_app_format.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_bootloader_format/libesp_bootloader_format.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/app_update/libapp_update.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_partition/libesp_partition.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/efuse/libefuse.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/bootloader_support/libbootloader_support.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_mm/libesp_mm.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/spi_flash/libspi_flash.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_system/libesp_system.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_common/libesp_common.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_rom/libesp_rom.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/hal/libhal.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/log/liblog.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/heap/libheap.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/soc/libsoc.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_security/libesp_security.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_hw_support/libesp_hw_support.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/freertos/libfreertos.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/newlib/libnewlib.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/pthread/libpthread.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/cxx/libcxx.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_timer/libesp_timer.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_uart/libesp_driver_uart.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/app_trace/libapp_trace.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_event/libesp_event.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/nvs_flash/libnvs_flash.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_spi/libesp_driver_spi.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_mcpwm/libesp_driver_mcpwm.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_i2s/libesp_driver_i2s.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/sdmmc/libsdmmc.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/driver/libdriver.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_phy/libesp_phy.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/vfs/libvfs.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/lwip/liblwip.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_netif/libesp_netif.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_coex/libesp_coex.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_wifi/libesp_wifi.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/unity/libunity.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/cmock/libcmock.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/console/libconsole.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/http_parser/libhttp_parser.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp-tls/libesp-tls.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_adc/libesp_adc.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_driver_cam/libesp_driver_cam.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_eth/libesp_eth.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_hid/libesp_hid.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/tcp_transport/libtcp_transport.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_http_client/libesp_http_client.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_http_server/libesp_http_server.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_https_ota/libesp_https_ota.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_https_server/libesp_https_server.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_lcd/libesp_lcd.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/protobuf-c/libprotobuf-c.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/protocomm/libprotocomm.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/espcoredump/libespcoredump.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/wear_levelling/libwear_levelling.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/fatfs/libfatfs.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/json/libjson.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mqtt/libmqtt.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/nvs_sec_provider/libnvs_sec_provider.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/perfmon/libperfmon.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/rt/librt.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/spiffs/libspiffs.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
-/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/main/libmain.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/xtensa/libxtensa.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_gpio/libesp_driver_gpio.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_pm/libesp_pm.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mbedtls/libmbedtls.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_app_format/libesp_app_format.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_bootloader_format/libesp_bootloader_format.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/app_update/libapp_update.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_partition/libesp_partition.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/efuse/libefuse.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/bootloader_support/libbootloader_support.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_mm/libesp_mm.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/spi_flash/libspi_flash.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_system/libesp_system.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_common/libesp_common.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_rom/libesp_rom.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/hal/libhal.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/log/liblog.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/heap/libheap.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/soc/libsoc.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_security/libesp_security.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_hw_support/libesp_hw_support.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/freertos/libfreertos.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/newlib/libnewlib.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/pthread/libpthread.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/cxx/libcxx.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_timer/libesp_timer.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_uart/libesp_driver_uart.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/app_trace/libapp_trace.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_event/libesp_event.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/nvs_flash/libnvs_flash.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_spi/libesp_driver_spi.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_mcpwm/libesp_driver_mcpwm.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_i2s/libesp_driver_i2s.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/sdmmc/libsdmmc.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/driver/libdriver.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_phy/libesp_phy.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/vfs/libvfs.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/lwip/liblwip.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_netif/libesp_netif.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/wpa_supplicant/libwpa_supplicant.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_coex/libesp_coex.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_wifi/libesp_wifi.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/unity/libunity.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/cmock/libcmock.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/console/libconsole.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/http_parser/libhttp_parser.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp-tls/libesp-tls.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_adc/libesp_adc.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_driver_cam/libesp_driver_cam.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_eth/libesp_eth.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_hid/libesp_hid.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/tcp_transport/libtcp_transport.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_http_client/libesp_http_client.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_http_server/libesp_http_server.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_https_ota/libesp_https_ota.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_https_server/libesp_https_server.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_lcd/libesp_lcd.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/protobuf-c/libprotobuf-c.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/protocomm/libprotocomm.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/esp_local_ctrl/libesp_local_ctrl.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/espcoredump/libespcoredump.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/wear_levelling/libwear_levelling.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/fatfs/libfatfs.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/json/libjson.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mqtt/libmqtt.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/nvs_sec_provider/libnvs_sec_provider.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/perfmon/libperfmon.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/rt/librt.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/spiffs/libspiffs.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/main/libmain.a

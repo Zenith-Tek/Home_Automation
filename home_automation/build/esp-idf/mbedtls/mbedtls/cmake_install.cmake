@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
-  include("/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
-  include("/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
+  include("/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/3rdparty/cmake_install.cmake")
+  include("/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mbedtls/mbedtls/pkgconfig/cmake_install.cmake")
 
 endif()
 

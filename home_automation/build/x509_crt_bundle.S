@@ -1,4 +1,4 @@
-/* * Data converted from /media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

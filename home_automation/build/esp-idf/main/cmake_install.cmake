@@ -1,4 +1,4 @@
-# Install script for directory: /media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/main
+# Install script for directory: /home/zenithtek/Downloads/Home_Automation/home_automation/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

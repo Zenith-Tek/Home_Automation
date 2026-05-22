@@ -5,18 +5,18 @@ cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
   "/home/zenithtek/esp/esp-idf/components/bootloader/subproject"
-  "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader"
-  "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix"
-  "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/tmp"
-  "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp"
-  "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src"
-  "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp"
+  "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader"
+  "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix"
+  "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/tmp"
+  "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp"
+  "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src"
+  "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/media/zenithtek/Windows/Users/jnana/OneDrive - Zenith Tek/Projects/FY_2026-27/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/zenithtek/Downloads/Home_Automation/home_automation/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()
