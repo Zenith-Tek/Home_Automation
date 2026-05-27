@@ -1,0 +1,426 @@
+[0;32mI (13) boot: ESP-IDF v5.4.1-dirty 2nd stage bootloader[0m
+[0;32mI (13) boot: compile time May 27 2026 22:09:54[0m
+[0;32mI (13) boot: Multicore bootloader[0m
+[0;32mI (14) boot: chip revision: v1.1[0m
+[0;32mI (17) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (20) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (24) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (27) boot: Enabling RNG early entropy source...[0m
+[0;32mI (32) boot: Partition Table:[0m
+[0;32mI (34) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (41) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (47) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (54) boot:  2 factory          factory app      00 00 00010000 00200000[0m
+[0;32mI (60) boot: End of partition table[0m
+[0;32mI (64) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=3a84ch (239692) map[0m
+[0;32mI (153) esp_image: segment 1: paddr=0004a874 vaddr=3ff80000 size=0001ch (    28) load[0m
+[0;32mI (153) esp_image: segment 2: paddr=0004a898 vaddr=3ffb0000 size=03fa0h ( 16288) load[0m
+[0;32mI (163) esp_image: segment 3: paddr=0004e840 vaddr=40080000 size=017d8h (  6104) load[0m
+[0;32mI (167) esp_image: segment 4: paddr=00050020 vaddr=400d0020 size=b921ch (758300) map[0m
+[0;32mI (431) esp_image: segment 5: paddr=00109244 vaddr=400817d8 size=1638ch ( 91020) load[0m
+[0;32mI (478) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (478) boot: Disabling RNG early entropy source...[0m
+[0;32mI (488) cpu_start: Multicore app[0m
+[0;32mI (497) cpu_start: Pro cpu start user code[0m
+[0;32mI (497) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (497) app_init: Application information:[0m
+[0;32mI (497) app_init: Project name:     home_automation[0m
+[0;32mI (502) app_init: App version:      ca9d409-dirty[0m
+[0;32mI (506) app_init: Compile time:     May 27 2026 22:09:49[0m
+[0;32mI (511) app_init: ELF file SHA256:  c55ef1c7e...[0m
+[0;32mI (515) app_init: ESP-IDF:          v5.4.1-dirty[0m
+[0;32mI (520) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (524) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (528) efuse_init: Chip rev:         v1.1[0m
+[0;32mI (532) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (538) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (543) heap_init: At 3FFB8908 len 000276F8 (157 KiB): DRAM[0m
+[0;32mI (548) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (553) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (559) heap_init: At 40097B64 len 0000849C (33 KiB): IRAM[0m
+[0;32mI (566) spi_flash: detected chip: generic[0m
+[0;32mI (568) spi_flash: flash io: dio[0m
+[0;32mI (572) main_task: Started on CPU0[0m
+[0;32mI (582) main_task: Calling app_main()[0m
+[0;32mI (582) Main: Last reboot reason: Power On[0m
+[0;33mW (582) DEBUG: =============================================[0m
+[0;33mW (582) DEBUG: HOME AUTOMATION STARTING...[0m
+[0;33mW (582) DEBUG: =============================================[0m
+[0;32mI (592) Provisoning: ========== Chip Information ===========================================[0m
+[0;32mI (602) Provisoning: Chip model: ESP32[0m
+[0;32mI (602) Provisoning: CPU cores: 2[0m
+[0;32mI (602) Provisoning: Silicon revision: 101[0m
+[0;32mI (612) Provisoning: Flash size: 4 MB[0m
+[0;32mI (612) Provisoning: ========== Program Version ============================================[0m
+[0;32mI (622) Provisoning: [APP] Name: home_automation[0m
+[0;32mI (622) Provisoning: [APP] Version: ca9d409-dirty[0m
+[0;32mI (632) Provisoning: [APP] Compile Date: May 27 2026[0m
+[0;32mI (632) Provisoning: [APP] Compile Time: 22:09:49[0m
+[0;32mI (642) Provisoning: ========== Heap Information ===========================================[0m
+[0;32mI (642) Provisoning: Total free heap: 276740 bytes[0m
+[0;32mI (652) Provisoning: Minimum free heap since boot: 276740 bytes[0m
+[0;32mI (662) Provisoning: Internal RAM free: 309860 bytes[0m
+[0;32mI (662) Provisoning: ========== Stack Information ==========================================[0m
+[0;32mI (672) Provisoning: Current task stack high water mark: 2068 bytes[0m
+[0;32mI (672) Provisoning: ========== Flash Partition Information ================================[0m
+[0;32mI (682) Provisoning: App partition size: 2097152 bytes[0m
+[0;32mI (692) Provisoning: =======================================================================[0m
+[0;32mI (702) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (702) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (712) gpio: GPIO[13]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (722) gpio: GPIO[14]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (732) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (742) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (752) gpio: GPIO[18]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (752) gpio: GPIO[19]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (762) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (772) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (782) gpio: GPIO[25]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (792) gpio: GPIO[26]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (792) gpio: GPIO[32]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (802) gpio: GPIO[33]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (812) gpio: GPIO[34]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (822) gpio: GPIO[35]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (832) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (842) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:2 [0m
+[0;32mI (852) RC_GPIO: All 9 Relays and 9 Switches initialized.[0m
+[0;32mI (892) wifi:wifi driver task: 3ffc1ee8, prio:23, stack:6656, core=0[0m
+[0;32mI (902) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (902) wifi:wifi certification version: v7.0[0m
+[0;32mI (902) wifi:config NVS flash: enabled[0m
+[0;32mI (902) wifi:config nano formatting: disabled[0m
+[0;32mI (902) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (912) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (912) wifi:Init management short buffer num: 32[0m
+[0;32mI (922) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (922) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (932) wifi:Init static rx buffer num: 10[0m
+[0;32mI (932) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (932) wifi_init: rx ba win: 6[0m
+[0;32mI (942) wifi_init: accept mbox: 6[0m
+[0;32mI (942) wifi_init: tcpip mbox: 32[0m
+[0;32mI (942) wifi_init: udp mbox: 6[0m
+[0;32mI (942) wifi_init: tcp mbox: 6[0m
+[0;32mI (952) wifi_init: tcp tx win: 5760[0m
+[0;32mI (952) wifi_init: tcp rx win: 5760[0m
+[0;32mI (952) wifi_init: tcp mss: 1440[0m
+[0;32mI (962) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (962) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (972) WIFI_MANAGER: Already provisioned, starting Wi-Fi STA[0m
+[0;32mI (972) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
+[0;32mI (1052) wifi:mode : sta (20:43:a8:6e:de:08)[0m
+[0;32mI (1052) wifi:enable tsf[0m
+[0;32mI (1052) WIFI_MANAGER: WAITING FOR WIFI_CONNECTED_EVENT[0m
+[0;32mI (3472) wifi:new:<7,0>, old:<1,0>, ap:<255,255>, sta:<7,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3472) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3502) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3522) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3632) wifi:connected with zenithtek, aid = 3, channel 7, BW20, bssid = 7c:f1:7e:d1:5b:03[0m
+[0;32mI (3642) wifi:security: WPA2-PSK, phy: bgn, rssi: -72[0m
+[0;32mI (3642) wifi:pm start, type: 1[0m
+
+[0;32mI (3642) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3672) wifi:<ba-add>idx:0 (ifx:0, 7c:f1:7e:d1:5b:03), tid:0, ssn:2, winSize:64[0m
+[0;32mI (3702) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4052) WIFI_MANAGER: Waiting for IP address from DHCP...[0m
+[0;32mI (8192) Provisioning: Connected with IP Address:192.168.0.8[0m
+[0;32mI (8192) esp_netif_handlers: sta ip: 192.168.0.8, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (8192) WIFI_MANAGER: IP address acquired! Proceeding with application setup.[0m
+[0;32mI (13202) Main: Initializing SNTP[0m
+[0;32mI (13202) Main: Waiting for system time to be set... (1/15)[0m
+[0;32mI (15202) Main: Waiting for system time to be set... (2/15)[0m
+[0;32mI (15582) wifi:<ba-add>idx:1 (ifx:0, 7c:f1:7e:d1:5b:03), tid:1, ssn:1, winSize:64[0m
+[0;32mI (17202) Main: System time is set.[0m
+[0;32mI (17202) Main: Heartbeat task started.[0m
+[0;33mW (17202) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (17212) main_task: Returned from app_main()[0m
+[0;32mI (17212) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-69,"uptime_seconds":16,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900120}[0m
+[0;32mI (18762) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (19772) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;32mI (20682) Supabase: Connecting to Supabase Realtime...[0m
+[0;33mW (20682) websocket_client: `reconnect_timeout_ms` is not set, or it is less than or equal to zero, using default time out 10000 (milliseconds)[0m
+[0;33mW (20692) websocket_client: `network_timeout_ms` is not set, or it is less than or equal to zero, using default time out 10000 (milliseconds)[0m
+[0;32mI (20702) websocket_client: Started[0m
+[0;32mI (20772) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (22452) Supabase: WebSocket Connected. Sending Join Message...[0m
+[0;32mI (22822) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (62102) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (63152) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (82832) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (82832) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-69,"uptime_seconds":82,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900185}[0m
+[0;32mI (85362) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (87642) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (123002) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (124062) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (147642) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (147642) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-71,"uptime_seconds":147,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900250}[0m
+[0;32mI (149142) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (150592) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (183492) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (184502) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (210592) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (210592) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":210,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900313}[0m
+[0;32mI (213382) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (214542) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (244092) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (245132) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (274552) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (274552) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-70,"uptime_seconds":273,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900377}[0m
+[0;32mI (275962) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (277842) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (304262) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (305242) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (337852) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (337852) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":337,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900440}[0m
+[0;32mI (339232) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (340642) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (364842) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (365952) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (400652) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (400652) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":400,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900503}[0m
+[0;32mI (402072) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (403492) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (425592) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (426652) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (463502) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (463502) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":462,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900566}[0m
+[0;32mI (464882) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (466182) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (486432) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (487412) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (526182) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (526182) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":525,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900629}[0m
+[0;32mI (527552) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (529032) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (546372) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (547502) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (589042) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (589042) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":588,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900691}[0m
+[0;32mI (590412) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (592112) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (607132) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (608102) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (652122) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (652122) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":651,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900754}[0m
+[0;32mI (653492) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (654722) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (667982) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (669132) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (714722) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (714722) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":714,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900817}[0m
+[0;32mI (716142) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (717502) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (728762) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (729782) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (777502) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (777502) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-65,"uptime_seconds":776,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900880}[0m
+[0;32mI (779042) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (780352) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (789412) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (790482) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (840352) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (840352) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":839,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779900943}[0m
+[0;32mI (841742) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (843612) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (850202) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (851312) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (903612) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (903612) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":903,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901006}[0m
+[0;32mI (905172) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (906692) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (910912) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (911932) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (966692) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (966692) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-65,"uptime_seconds":966,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901069}[0m
+[0;32mI (968102) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (969602) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (971432) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (972482) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1029602) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1029602) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":1029,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901132}[0m
+[0;32mI (1032002) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1033042) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;32mI (1033262) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1034792) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1092742) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1093902) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1094802) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1094802) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":1094,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901197}[0m
+[0;32mI (1096182) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1097422) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1152772) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1153742) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1157422) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1157422) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":1156,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901260}[0m
+[0;32mI (1158812) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1160232) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1213342) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1214412) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1220242) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1220242) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":1219,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901323}[0m
+[0;32mI (1221622) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1222822) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1274212) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1275182) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1282832) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1282832) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-65,"uptime_seconds":1282,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901385}[0m
+[0;32mI (1284322) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1285462) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1334262) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1335332) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1345472) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1345472) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-69,"uptime_seconds":1344,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901448}[0m
+[0;32mI (1346832) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1348242) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1395122) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1396102) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1408242) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1408242) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":1407,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901511}[0m
+[0;32mI (1409662) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1410972) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1456862) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1459062) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1470972) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1470972) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":1470,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901573}[0m
+[0;32mI (1472442) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1474092) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1515812) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1516842) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1534102) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1534102) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":1533,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901636}[0m
+[0;32mI (1535472) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1538212) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1576712) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1577742) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1598212) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1598212) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":1597,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901701}[0m
+[0;32mI (1599672) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1601272) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1636722) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1637852) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1661282) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1661282) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":1660,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901764}[0m
+[0;32mI (1662672) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1664152) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1696732) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1697682) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1724152) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1724152) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":1723,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901827}[0m
+[0;32mI (1725592) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1726942) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1757452) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1758522) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1786942) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1786942) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":1786,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901889}[0m
+[0;32mI (1788332) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1789902) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1818292) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1819262) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1849902) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1849902) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":1849,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779901952}[0m
+[0;32mI (1851272) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1852972) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1879282) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1880252) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1912982) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1912982) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":1912,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902015}[0m
+[0;32mI (1914372) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1915672) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (1939792) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (1940872) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (1975672) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (1975672) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-65,"uptime_seconds":1975,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902078}[0m
+[0;32mI (1977062) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (1978532) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2000682) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2001832) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2038532) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2038532) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-64,"uptime_seconds":2037,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902141}[0m
+[0;32mI (2039952) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2041102) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2061542) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2062592) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2101112) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2101112) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":2100,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902203}[0m
+[0;32mI (2102502) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2103802) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2122372) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2123442) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2163802) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2163802) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-65,"uptime_seconds":2163,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902266}[0m
+[0;32mI (2165182) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2166422) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2182992) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2183992) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2226432) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2226432) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":2225,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902329}[0m
+[0;32mI (2227852) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2229092) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2243532) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2244682) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2289102) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2289102) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":2288,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902391}[0m
+[0;32mI (2290472) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2292002) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2304562) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2305792) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2352012) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2352012) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-65,"uptime_seconds":2351,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902454}[0m
+[0;32mI (2353382) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2356612) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2364412) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2365402) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2416622) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2416622) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":2416,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902519}[0m
+[0;32mI (2418042) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2419572) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2424912) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2425982) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2479582) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2479582) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":2479,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902582}[0m
+[0;32mI (2480972) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2482842) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2485882) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2487062) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2542842) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2542842) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":2542,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902645}[0m
+[0;32mI (2544252) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2546832) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2547052) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[1;31mE (2547982) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2607062) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2607062) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-70,"uptime_seconds":2606,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902709}[0m
+[0;32mI (2607492) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2608522) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;32mI (2609542) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2610742) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2668422) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2669442) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2670752) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2670752) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":2670,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902773}[0m
+[0;32mI (2672142) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2673592) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2729192) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2730272) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2733592) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2733592) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-68,"uptime_seconds":2733,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902836}[0m
+[0;32mI (2734962) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2736252) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2790032) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2792202) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2796262) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2796262) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-66,"uptime_seconds":2795,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902899}[0m
+[0;32mI (2797642) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2799052) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2851032) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2852062) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2859062) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2859062) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-67,"uptime_seconds":2858,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779902961}[0m
+[0;32mI (2860432) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2861682) Main: Heartbeat sent successfully (SSID: zenithtek)[0m
+[0;32mI (2911702) esp-x509-crt-bundle: Certificate validated[0m
+[1;31mE (2914262) HTTP_HEADER: Buffer length is small to fit all the headers[0m
+[0;33mW (2921692) Main: [Heartbeat Task] Sending device heartbeat...[0m
+[0;32mI (2921692) Main: Heartbeat Payload: {"device_id":"20:43:A8:6E:DE:08","wifi_ssid":"zenithtek","wifi_password":"motoE_2018","wifi_rssi":-70,"uptime_seconds":2921,"firmware_version":"ca9d409-dirty","last_reboot_reason":"Power On","last_provisioned_at":"2026-05-27T15:39:41Z","device_timestamp":1779903024}[0m
+[0;32mI (2923072) esp-x509-crt-bundle: Certificate validated[0m
+[0;32mI (2926182) Main: Heartbeat sent successfully (SSID: zenithtek)[0m

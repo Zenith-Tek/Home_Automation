@@ -23,7 +23,7 @@
 /* ==================================================================== */
 /* ==================== CONFIGURATION ================================= */
 /* ==================================================================== */
-
+#define SB_HTTP_BUFFER_SIZE 16384
 // --- Supabase Configuration ---
 // These values are taken directly from your Supabase project settings.
 #define SUPABASE_URL "https://hbpwmqxwnnffgnncbgeq.supabase.co"
@@ -62,5 +62,8 @@ void send_device_health_to_supabase(void);
  * @brief Background task to periodically sync status or check for remote commands.
  */
 void supabase_sync_task(void *pvParameters);
+
+// New function for Realtime
+void start_supabase_realtime(void);
 
 #endif // __SUPABASE_H__

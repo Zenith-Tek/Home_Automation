@@ -2,7 +2,9 @@
 #include "wifi.h"
 #include "supabase.h"
 #include <time.h>
-// #include "esp_crt_bundle.h"
+#include "esp_system.h"
+#include "esp_wifi.h"
+#include "esp_crt_bundle.h"
 
 #define TAG_1 "Provisoning"
 #define TAG_INFO "Provisoning"
@@ -16,16 +18,18 @@ void app_main()
     esp_reset_reason_t reboot_reason = esp_reset_reason();
     G_REBOOT_REASON_STR = get_reboot_reason_string(reboot_reason);
     ESP_LOGI(TAG, "Last reboot reason: %s", G_REBOOT_REASON_STR);
-
+    ESP_LOGW("DEBUG", "=============================================");
+    ESP_LOGW("DEBUG", "HOME AUTOMATION STARTING...");
+    ESP_LOGW("DEBUG", "=============================================");
 	print_system_memory_status();
     setup_gpios();
     connect_wifi();
     vTaskDelay(pdMS_TO_TICKS(5000)); // Wait 5 seconds for IP
     initialize_sntp();
     handle_provisioning_timestamp();
-    xTaskCreate(&supabase_sync_task, "Supabase Sync", 8192, NULL, 5, NULL);
+    xTaskCreate(&supabase_sync_task, "Supabase Sync", 16384, NULL, 5, NULL);
 	
-    xTaskCreate(&heartbeat_task, "Heartbeat Task", 8192, NULL, 3, NULL);
+    xTaskCreate(&heartbeat_task, "Heartbeat Task", 16384, NULL, 3, NULL);
 }
 
 void print_system_memory_status() 
@@ -100,8 +104,11 @@ void initialize_sntp(void)
     localtime_r(&now, &timeinfo);
 
     if (timeinfo.tm_year < (2023 - 1900)) {
-        ESP_LOGE(TAG, "Time synchronization failed!");
+        ESP_LOGE(TAG, "Time synchronization failed! Restarting in 5 seconds...");
+        vTaskDelay(pdMS_TO_TICKS(5000));
+        esp_restart(); // Restart to retry SNTP sync on boot. 
         // In a real app, you might want to retry or restart here
+
     } else {
         ESP_LOGI(TAG, "System time is set.");
     }
@@ -228,8 +235,11 @@ void update_device_status(void)
         .url = url,
         .method = HTTP_METHOD_POST,
         .timeout_ms = 10000,
-        .buffer_size = 2048,
-        .buffer_size_tx = 2048,
+        .buffer_size = SB_HTTP_BUFFER_SIZE,
+        .buffer_size_tx = SB_HTTP_BUFFER_SIZE,
+            // .header_buffer_size = 8192,   
+    .crt_bundle_attach = esp_crt_bundle_attach,
+
         // .skip_cert_common_name_check = true, // Set to true if not using cert bundles
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);

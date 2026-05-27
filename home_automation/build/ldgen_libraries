@@ -81,4 +81,5 @@
 /home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/rt/librt.a
 /home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/spiffs/libspiffs.a
 /home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/espressif__esp_websocket_client/libespressif__esp_websocket_client.a
 /home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/main/libmain.a
