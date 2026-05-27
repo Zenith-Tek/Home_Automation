@@ -130,10 +130,10 @@ void prov_event_handler(void* arg, esp_event_base_t event_base,
                 break;
             case WIFI_EVENT_AP_STADISCONNECTED:
                 ESP_LOGI(TAG_PROV, "SoftAP transport: Disconnected!");
-                ESP_LOGW(TAG, "Restarting in 5 seconds...");
-                vTaskDelay(pdMS_TO_TICKS(5000));
+                // ESP_LOGW(TAG, "Restarting in 5 seconds...");
+                // vTaskDelay(pdMS_TO_TICKS(5000));
 
-                esp_restart();
+                // esp_restart();
                 break;
             default:
                 break;
