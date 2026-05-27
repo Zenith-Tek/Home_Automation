@@ -36,6 +36,7 @@ void relay_on(int relay_id)
     
     // Sync change to Supabase
     update_relay_state_in_supabase(relay_id, 1);
+    save_relay_states_to_nvs(); // Save to NVS for persistence
 }
 
 void relay_off(int relay_id)
@@ -49,6 +50,7 @@ void relay_off(int relay_id)
     
     // Sync change to Supabase
     update_relay_state_in_supabase(relay_id, 0);
+    save_relay_states_to_nvs(); // Save to NVS for persistence
 }
 
 /**

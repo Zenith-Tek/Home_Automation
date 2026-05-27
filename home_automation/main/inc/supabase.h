@@ -19,11 +19,18 @@
 #include "esp_http_client.h"
 #include "esp_mac.h" 
 
+#include "nvs_flash.h"
+#include "nvs.h"
 
 /* ==================================================================== */
 /* ==================== CONFIGURATION ================================= */
 /* ==================================================================== */
 #define SB_HTTP_BUFFER_SIZE 16384
+
+#define NVS_NAMESPACE "relay_storage"
+#define NVS_KEY_STATES "states"
+#define NVS_RELAY_NAMESPACE "relays_pref"
+
 // --- Supabase Configuration ---
 // These values are taken directly from your Supabase project settings.
 #define SUPABASE_URL "https://hbpwmqxwnnffgnncbgeq.supabase.co"
@@ -65,5 +72,9 @@ void supabase_sync_task(void *pvParameters);
 
 // New function for Realtime
 void start_supabase_realtime(void);
+
+void save_relay_states_to_nvs(void);
+void load_relay_states_from_nvs(void);
+void sync_all_relays_to_supabase(void);
 
 #endif // __SUPABASE_H__

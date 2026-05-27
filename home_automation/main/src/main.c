@@ -18,11 +18,25 @@ void app_main()
     esp_reset_reason_t reboot_reason = esp_reset_reason();
     G_REBOOT_REASON_STR = get_reboot_reason_string(reboot_reason);
     ESP_LOGI(TAG, "Last reboot reason: %s", G_REBOOT_REASON_STR);
+
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        // If NVS partition was truncated or has a new version, erase it and re-init
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
+
     ESP_LOGW("DEBUG", "=============================================");
     ESP_LOGW("DEBUG", "HOME AUTOMATION STARTING...");
     ESP_LOGW("DEBUG", "=============================================");
 	print_system_memory_status();
     setup_gpios();
+    load_relay_states_from_nvs();
+    ESP_LOGW("STARTUP", "Relay 1 is currently: %d", relay_states[0]);
+    ESP_LOGW("DEBUG", "NVS RESTORE COMPLETE. Starting Network...");
+    vTaskDelay(pdMS_TO_TICKS(2000)); // Short delay before starting Wi-Fi
+
     connect_wifi();
     vTaskDelay(pdMS_TO_TICKS(5000)); // Wait 5 seconds for IP
     initialize_sntp();
