@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "home_automation",
-    "project_version":    "3bc6739-dirty",
+    "project_version":    "3b468e7-dirty",
     "project_path":       "/home/zenithtek/Downloads/Home_Automation/home_automation",
     "idf_path":           "/home/zenithtek/esp/esp-idf",
     "build_dir":          "/home/zenithtek/Downloads/Home_Automation/home_automation/build",
