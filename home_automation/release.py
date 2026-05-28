@@ -1,4 +1,5 @@
 import os
+import time
 import requests
 import shutil
 
@@ -46,15 +47,37 @@ def create_release():
     }
 
     with open(release_path, 'rb') as f:
-        # We use POST to upload a new file
-        response = requests.post(upload_url, headers=headers, data=f)
+        file_data = f.read()
+    print(f"  File size: {len(file_data)} bytes")
 
-    if response.status_code == 200:
-        print("Upload Successful!")
-    elif response.status_code == 400 and "already exists" in response.text:
-        print("File already exists in storage. Proceeding to update database...")
-    else:
-        print(f"Upload Failed! {response.status_code}: {response.text}")
+    # Upload with upsert header so it works whether file exists or not
+    headers["x-upsert"] = "true"
+    uploaded = False
+    for attempt in range(3):
+        try:
+            print(f"  Attempt {attempt+1}/3...")
+            response = requests.post(upload_url, headers=headers, data=file_data, timeout=(30, 300))
+            if response.status_code == 200:
+                print("Upload Successful!")
+                uploaded = True
+                break
+            else:
+                print(f"  Upload returned {response.status_code}: {response.text}")
+                if attempt < 2:
+                    print("  Retrying...")
+                    time.sleep(2)
+        except (requests.exceptions.ConnectionError,
+                requests.exceptions.Timeout,
+                requests.exceptions.SSLError) as e:
+            print(f"  Network error: {type(e).__name__}")
+            if attempt < 2:
+                print("  Retrying in 3 seconds...")
+                time.sleep(3)
+            else:
+                print("  All retries failed. Check your network connection.")
+                return
+    if not uploaded:
+        print("Upload failed after 3 attempts.")
         return
 
     # 5. Construct the Public URL
