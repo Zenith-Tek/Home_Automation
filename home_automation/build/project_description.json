@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "home_automation",
-    "project_version":    "5f9c522-dirty",
+    "project_version":    "5fda8fe-dirty",
     "project_path":       "/home/zenithtek/Downloads/Home_Automation/home_automation",
     "idf_path":           "/home/zenithtek/esp/esp-idf",
     "build_dir":          "/home/zenithtek/Downloads/Home_Automation/home_automation/build",
@@ -1210,7 +1210,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_websocket_client" ],
             "file": "/home/zenithtek/Downloads/Home_Automation/home_automation/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/home_automation.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/main.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/provisioning.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/rc_gpio.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/supabase.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/utils.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/wifi.c" ],
+            "sources": [ "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/main.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/provisioning.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/rc_gpio.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/supabase.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/utils.c", "/home/zenithtek/Downloads/Home_Automation/home_automation/main/src/wifi.c" ],
             "include_dirs": [ "inc", "." ]
         },
         "mbedtls": {
