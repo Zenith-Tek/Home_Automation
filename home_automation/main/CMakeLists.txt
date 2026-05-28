@@ -19,14 +19,15 @@ idf_component_register(SRCS ${SOURCES}
                         wifi_provisioning
                         lwip
                         esp_http_client 
-                        esp_websocket_client 
-                        json 
-                        driver
-                        esp_timer
-                        esp_system
-                        esp_partition
-                        esp_app_format
-                        app_update
+                        esp_https_ota        # Required for OTA
+                        esp_websocket_client # Downloaded via Component Manager
+                        json                 # For cJSON
+                        driver               # For GPIOs
+                        esp_timer 
+                        esp_system 
+                        esp_partition 
+                        esp_app_format       # For reading version info
+                        app_update           # For partition logic
                         spi_flash
-                        mbedtls
+                        mbedtls 
 )

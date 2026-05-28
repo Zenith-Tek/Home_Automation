@@ -18,7 +18,7 @@
 
 #include "esp_http_client.h"
 #include "esp_mac.h" 
-
+#include "esp_https_ota.h"
 #include "nvs_flash.h"
 #include "nvs.h"
 
@@ -39,6 +39,10 @@
 // Table Names
 #define TABLE_RELAYS "relays"
 #define TABLE_DEVICE_STATUS "device_status"
+
+#define TABLE_SYSTEM_CONTROL "system_control"
+
+#define FIRMWARE_VERSION "1.0.10"
 
 /* ==================== GLOBALS / STATE =============================== */
 // Array to hold the current state of 9 relays (0 = OFF, 1 = ON)
@@ -76,5 +80,7 @@ void start_supabase_realtime(void);
 void save_relay_states_to_nvs(void);
 void load_relay_states_from_nvs(void);
 void sync_all_relays_to_supabase(void);
+void start_ota_update(const char *url);
+void ota_task(void *pvParameter);
 
 #endif // __SUPABASE_H__

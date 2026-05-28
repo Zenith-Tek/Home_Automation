@@ -28,7 +28,7 @@ void app_main()
     ESP_ERROR_CHECK(ret);
 
     ESP_LOGW("DEBUG", "=============================================");
-    ESP_LOGW("DEBUG", "HOME AUTOMATION STARTING...");
+    ESP_LOGW("DEBUG", "HOME AUTOMATION Project...(OTA & Realtime Enabled)(%s)", FIRMWARE_VERSION);
     ESP_LOGW("DEBUG", "=============================================");
 	print_system_memory_status();
     setup_gpios();
@@ -218,7 +218,8 @@ void update_device_status(void)
 
     // Add Firmware & Reboot Reason
     const esp_app_desc_t *app_desc = esp_app_get_description();
-    cJSON_AddStringToObject(root, "firmware_version", app_desc->version);
+    // cJSON_AddStringToObject(root, "firmware_version", app_desc->version);
+    cJSON_AddStringToObject(root, "firmware_version", FIRMWARE_VERSION);
     cJSON_AddStringToObject(root, "last_reboot_reason", G_REBOOT_REASON_STR);
 
     // Handle Provisioned Date string

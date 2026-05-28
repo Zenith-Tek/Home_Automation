@@ -42,7 +42,7 @@
 
 // #include "wifi_provisioning/manager.h"
 // #include "wifi_provisioning/scheme_softap.h"
-
+// #define FIRMWARE_VERSION "1.0.0"
 // #define WIFI_CONNECTED_EVENT_TIMEOUT (3000/portTICK_PERIOD_MS)
 
 void print_system_memory_status();
