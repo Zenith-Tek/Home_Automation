@@ -7,9 +7,7 @@ set(SRCS
     "src/wifi.c"
 )
 
-file(GLOB_RECURSE SOURCES "*.c")
-
-idf_component_register(SRCS ${SOURCES}
+idf_component_register(SRCS ${SRCS}
                     INCLUDE_DIRS "inc" "."
                     PRIV_REQUIRES 
                         esp_wifi 

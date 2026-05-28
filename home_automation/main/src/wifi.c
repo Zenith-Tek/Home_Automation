@@ -12,7 +12,6 @@
 #include "nvs_flash.h"
 #include "esp_netif.h"
 #include <sys/time.h>
-#include "nvs_flash.h"
 
 // Define a local TAG for this file for logging
 static const char *TAG_WIFI = "WIFI_MANAGER";
@@ -24,16 +23,7 @@ EventGroupHandle_t wifi_event_group;
 void connect_wifi()
 {
     bool provision_status = false;
-    /* Initialize NVS partition */
-    esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-        /* NVS partition was truncated
-         * and needs to be erased */
-        ESP_ERROR_CHECK(nvs_flash_erase());
-
-        /* Retry nvs_flash_init */
-        ESP_ERROR_CHECK(nvs_flash_init());
-    }
+    /* NVS is already initialized in app_main(), no need to re-init here */
     wifi_init();
 
     provision_status = provisioning_init();
@@ -55,7 +45,6 @@ void connect_wifi()
         ESP_LOGI(TAG_WIFI,"WAITING FOR WIFI_CONNECTED_EVENT");
         // xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, WIFI_CONNECTED_EVENT_TIMEOUT);
     }
-    esp_netif_ip_info_t ip_info;
     esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
 
     while (netif == NULL || !esp_netif_is_netif_up(netif)) {

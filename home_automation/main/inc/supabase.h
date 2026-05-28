@@ -22,10 +22,13 @@
 #include "nvs_flash.h"
 #include "nvs.h"
 
+#include "provisioning.h"
+#include "wifi.h"
 /* ==================================================================== */
 /* ==================== CONFIGURATION ================================= */
 /* ==================================================================== */
-#define SB_HTTP_BUFFER_SIZE 16384
+#define SB_HTTP_BUFFER_SIZE    4096
+#define SB_HTTP_TX_BUFFER_SIZE 4096
 
 #define NVS_NAMESPACE "relay_storage"
 #define NVS_KEY_STATES "states"
@@ -42,7 +45,7 @@
 
 #define TABLE_SYSTEM_CONTROL "system_control"
 
-#define FIRMWARE_VERSION "1.0.10"
+#define FIRMWARE_VERSION "1.2.2" // Update this for each release!
 
 /* ==================== GLOBALS / STATE =============================== */
 // Array to hold the current state of 9 relays (0 = OFF, 1 = ON)
@@ -82,5 +85,7 @@ void load_relay_states_from_nvs(void);
 void sync_all_relays_to_supabase(void);
 void start_ota_update(const char *url);
 void ota_task(void *pvParameter);
+void trigger_software_reprovision(void);
+void get_mac_address(char *mac_str);
 
 #endif // __SUPABASE_H__

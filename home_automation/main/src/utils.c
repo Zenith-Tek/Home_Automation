@@ -7,14 +7,14 @@
 #include "supabase.h"
 #include "nvs_flash.h"
 
-char *TAG = "UTILS";
+static const char *TAG_UTILS = "UTILS";
 uint32_t tick = 0;
 
 // Mapping index 1-9 to the actual Relay GPIOs
 const int RELAY_MAP[] = {0, 13, 14, 4, 16, 17, 5, 18, 19, 21};
 
 // Mapping for the switches based on your new schematic
-const int SWITCH_MAP[] = {0, 36, 39, 34, 35, 32, 33, 25, 26}; 
+const int SWITCH_MAP[] = {0, 22, 36, 39, 34, 35, 32, 33, 25, 26}; 
 
 void control_relay(int relay_id, int state)
 {
@@ -32,7 +32,7 @@ void relay_on(int relay_id)
     int gpio_pin = RELAY_MAP[relay_id];
     gpio_set_level(gpio_pin, 1);
     relay_states[relay_id - 1] = 1; // Update local state
-    ESP_LOGI(TAG, "Relay %d (GPIO %d) turned ON", relay_id, gpio_pin);
+    ESP_LOGI(TAG_UTILS, "Relay %d (GPIO %d) turned ON", relay_id, gpio_pin);
     
     // Sync change to Supabase
     update_relay_state_in_supabase(relay_id, 1);
@@ -46,7 +46,7 @@ void relay_off(int relay_id)
     int gpio_pin = RELAY_MAP[relay_id];
     gpio_set_level(gpio_pin, 0);
     relay_states[relay_id - 1] = 0; // Update local state
-    ESP_LOGI(TAG, "Relay %d (GPIO %d) turned OFF", relay_id, gpio_pin);
+    ESP_LOGI(TAG_UTILS, "Relay %d (GPIO %d) turned OFF", relay_id, gpio_pin);
     
     // Sync change to Supabase
     update_relay_state_in_supabase(relay_id, 0);
@@ -62,7 +62,7 @@ void process_gpios(int triggered_io) {
 
     // Find which relay index matches the triggered Switch GPIO
     // Index 0 is onboard, 1-8 are external
-    if (triggered_io == 0) relay_to_toggle = 1; 
+    if (triggered_io == 22) relay_to_toggle = 1; 
     else if (triggered_io == 36) relay_to_toggle = 2;
     else if (triggered_io == 39) relay_to_toggle = 3;
     else if (triggered_io == 34) relay_to_toggle = 4;
@@ -77,7 +77,7 @@ void process_gpios(int triggered_io) {
         int current_state = relay_states[relay_to_toggle - 1];
         int next_state = !current_state; 
 
-        ESP_LOGW(TAG, "Switch IO%d pressed. Toggling Relay %d to %d", triggered_io, relay_to_toggle, next_state);
+        ESP_LOGW(TAG_UTILS, "Switch IO%d pressed. Toggling Relay %d to %d", triggered_io, relay_to_toggle, next_state);
         
         // Execute the change
         control_relay(relay_to_toggle, next_state);

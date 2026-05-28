@@ -6,13 +6,29 @@
 #include "esp_wifi.h"
 #include "esp_crt_bundle.h"
 
-#define TAG_1 "Provisoning"
-#define TAG_INFO "Provisoning"
 #define TAG "Main"
 struct timeval tv;
 extern float ultrasonic_data;
 extern uint32_t tick;
 const char* G_REBOOT_REASON_STR = "Unknown";
+
+/**
+ * @brief Converts the esp_reset_reason_t enum to a human-readable string.
+ */
+const char* get_reboot_reason_string(esp_reset_reason_t reason)
+{
+    switch (reason) {
+        case ESP_RST_POWERON:      return "Power On";
+        case ESP_RST_SW:           return "Software Reset";
+        case ESP_RST_PANIC:        return "Panic/Crash";
+        case ESP_RST_INT_WDT:      return "Interrupt Watchdog";
+        case ESP_RST_TASK_WDT:     return "Task Watchdog";
+        case ESP_RST_DEEPSLEEP:    return "Deep Sleep Wakeup";
+        case ESP_RST_BROWNOUT:     return "Brownout (Low Voltage)";
+        default:                   return "Unknown";
+    }
+}
+
 void app_main()
 {
     esp_reset_reason_t reboot_reason = esp_reset_reason();
@@ -48,7 +64,7 @@ void app_main()
 
 void print_system_memory_status() 
 {
-    ESP_LOGI(TAG_INFO, "========== Chip Information ===========================================");
+    ESP_LOGI(TAG, "========== Chip Information ===========================================");
     esp_chip_info_t chip_info;
     esp_chip_info(&chip_info);
     const char *chip_model;
@@ -60,40 +76,40 @@ void print_system_memory_status()
         case CHIP_ESP32H2: chip_model = "ESP32-H2"; break;
         default: chip_model = "Unknown"; break;
     }
-    ESP_LOGI(TAG_INFO, "Chip model: %s", chip_model);
+    ESP_LOGI(TAG, "Chip model: %s", chip_model);
 
-    ESP_LOGI(TAG_INFO,"CPU cores: %d", chip_info.cores);
-    ESP_LOGI(TAG_INFO,"Silicon revision: %d", chip_info.revision);
+    ESP_LOGI(TAG,"CPU cores: %d", chip_info.cores);
+    ESP_LOGI(TAG,"Silicon revision: %d", chip_info.revision);
 
     uint32_t flash_size = 0;
-    esp_flash_get_size(NULL, &flash_size);  // <-- updated function
-    ESP_LOGI(TAG_INFO,"Flash size: %lu MB", (unsigned long) flash_size / (1024 * 1024));
+    esp_flash_get_size(NULL, &flash_size);
+    ESP_LOGI(TAG,"Flash size: %lu MB", (unsigned long) flash_size / (1024 * 1024));
 
     const esp_app_desc_t *app_desc = esp_app_get_description();
     gettimeofday(&tv, NULL);
-    ESP_LOGI(TAG_INFO, "========== Program Version ============================================");
-    ESP_LOGI(TAG_INFO, "[APP] Name: %s", app_desc->project_name);
+    ESP_LOGI(TAG, "========== Program Version ============================================");
+    ESP_LOGI(TAG, "[APP] Name: %s", app_desc->project_name);
     
-      ESP_LOGI(TAG_INFO, "[APP] Version: %s", app_desc->version);
-    ESP_LOGI(TAG_INFO, "[APP] Compile Date: %s", app_desc->date);
-    ESP_LOGI(TAG_INFO, "[APP] Compile Time: %s", app_desc->time);
-    ESP_LOGI(TAG_INFO, "========== Heap Information ===========================================");
-    ESP_LOGI(TAG_INFO,"Total free heap: %lu bytes", (unsigned long) heap_caps_get_free_size(MALLOC_CAP_DEFAULT));
-    ESP_LOGI(TAG_INFO,"Minimum free heap since boot: %lu bytes", (unsigned long) heap_caps_get_minimum_free_size(MALLOC_CAP_DEFAULT));
-    ESP_LOGI(TAG_INFO,"Internal RAM free: %lu bytes", (unsigned long) heap_caps_get_free_size(MALLOC_CAP_INTERNAL));
+      ESP_LOGI(TAG, "[APP] Version: %s", app_desc->version);
+    ESP_LOGI(TAG, "[APP] Compile Date: %s", app_desc->date);
+    ESP_LOGI(TAG, "[APP] Compile Time: %s", app_desc->time);
+    ESP_LOGI(TAG, "========== Heap Information ===========================================");
+    ESP_LOGI(TAG,"Total free heap: %lu bytes", (unsigned long) heap_caps_get_free_size(MALLOC_CAP_DEFAULT));
+    ESP_LOGI(TAG,"Minimum free heap since boot: %lu bytes", (unsigned long) heap_caps_get_minimum_free_size(MALLOC_CAP_DEFAULT));
+    ESP_LOGI(TAG,"Internal RAM free: %lu bytes", (unsigned long) heap_caps_get_free_size(MALLOC_CAP_INTERNAL));
 
-    ESP_LOGI(TAG_INFO, "========== Stack Information ==========================================");
-    ESP_LOGI(TAG_INFO,"Current task stack high water mark: %lu bytes", (unsigned long) uxTaskGetStackHighWaterMark(NULL));
+    ESP_LOGI(TAG, "========== Stack Information ==========================================");
+    ESP_LOGI(TAG,"Current task stack high water mark: %lu bytes", (unsigned long) uxTaskGetStackHighWaterMark(NULL));
 
-    ESP_LOGI(TAG_INFO, "========== Flash Partition Information ================================");
+    ESP_LOGI(TAG, "========== Flash Partition Information ================================");
     const esp_partition_t *part = esp_partition_find_first(ESP_PARTITION_TYPE_APP, ESP_PARTITION_SUBTYPE_ANY, NULL);
     if (part != NULL) {
-        ESP_LOGI(TAG_INFO,"App partition size: %lu bytes", (unsigned long) part->size);
+        ESP_LOGI(TAG,"App partition size: %lu bytes", (unsigned long) part->size);
     } else {
-        ESP_LOGI(TAG_INFO,"App partition not found!");
+        ESP_LOGI(TAG,"App partition not found!");
     }
 
-    ESP_LOGI(TAG_INFO, "=======================================================================");
+    ESP_LOGI(TAG, "=======================================================================");
 }
 
 void initialize_sntp(void)
@@ -120,8 +136,7 @@ void initialize_sntp(void)
     if (timeinfo.tm_year < (2023 - 1900)) {
         ESP_LOGE(TAG, "Time synchronization failed! Restarting in 5 seconds...");
         vTaskDelay(pdMS_TO_TICKS(5000));
-        esp_restart(); // Restart to retry SNTP sync on boot. 
-        // In a real app, you might want to retry or restart here
+        esp_restart();
 
     } else {
         ESP_LOGI(TAG, "System time is set.");
@@ -185,13 +200,11 @@ void update_device_status(void)
     snprintf(mac_str, sizeof(mac_str), "%02X:%02X:%02X:%02X:%02X:%02X", 
              mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
     
-    // 2. Get WiFi Configuration (SSID and Password)
+    // 2. Get WiFi SSID (not password for security)
     wifi_config_t wifi_cfg;
     char current_ssid[33] = {0};
-    char current_password[65] = {0};
     if (esp_wifi_get_config(WIFI_IF_STA, &wifi_cfg) == ESP_OK) {
         strncpy(current_ssid, (char*)wifi_cfg.sta.ssid, sizeof(current_ssid) - 1);
-        strncpy(current_password, (char*)wifi_cfg.sta.password, sizeof(current_password) - 1);
     }
 
     // 3. Read Provisioned Time from NVS (if it exists)
@@ -201,10 +214,9 @@ void update_device_status(void)
     }
 
     // 4. Create the JSON Payload
-    cJSON *root = cJSON_CreateObject(); // ONLY ONE DECLARATION HERE
+    cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "device_id", mac_str);
     cJSON_AddStringToObject(root, "wifi_ssid", current_ssid);
-    cJSON_AddStringToObject(root, "wifi_password", current_password);
 
     // Add Signal Strength
     wifi_ap_record_t ap_info;
@@ -217,8 +229,6 @@ void update_device_status(void)
     cJSON_AddNumberToObject(root, "uptime_seconds", uptime_seconds);
 
     // Add Firmware & Reboot Reason
-    const esp_app_desc_t *app_desc = esp_app_get_description();
-    // cJSON_AddStringToObject(root, "firmware_version", app_desc->version);
     cJSON_AddStringToObject(root, "firmware_version", FIRMWARE_VERSION);
     cJSON_AddStringToObject(root, "last_reboot_reason", G_REBOOT_REASON_STR);
 
@@ -252,14 +262,11 @@ void update_device_status(void)
         .timeout_ms = 10000,
         .buffer_size = SB_HTTP_BUFFER_SIZE,
         .buffer_size_tx = SB_HTTP_BUFFER_SIZE,
-            // .header_buffer_size = 8192,   
     .crt_bundle_attach = esp_crt_bundle_attach,
-
-        // .skip_cert_common_name_check = true, // Set to true if not using cert bundles
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
     
-    char bearer[512];
+    char bearer[8192];
     snprintf(bearer, sizeof(bearer), "Bearer %s", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "apikey", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "Authorization", bearer);
@@ -279,21 +286,4 @@ void update_device_status(void)
     esp_http_client_cleanup(client);
     cJSON_Delete(root); // Deletes root and all child items
     free(json_string);
-}
-
-/**
- * @brief Converts the esp_reset_reason_t enum to a human-readable string.
- */
-static const char* get_reboot_reason_string(esp_reset_reason_t reason)
-{
-    switch (reason) {
-        case ESP_RST_POWERON:      return "Power On";
-        case ESP_RST_SW:           return "Software Reset";
-        case ESP_RST_PANIC:        return "Panic/Crash";
-        case ESP_RST_INT_WDT:      return "Interrupt Watchdog";
-        case ESP_RST_TASK_WDT:     return "Task Watchdog";
-        case ESP_RST_DEEPSLEEP:    return "Deep Sleep Wakeup";
-        case ESP_RST_BROWNOUT:     return "Brownout (Low Voltage)";
-        default:                   return "Unknown";
-    }
 }

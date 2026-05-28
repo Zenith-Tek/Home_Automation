@@ -4,11 +4,10 @@
 #include <stdint.h>
 #include <esp_log.h>
 
-extern char *TAG;
 extern uint32_t tick;
 
 // --- Function declarations ---
-void process_gpios(); // Added missing semicolon here
+void process_gpios(int triggered_io);
 void relay_on(int relay_id); // Updated to accept ID (1-9)
 void relay_off(int relay_id); // Updated to accept ID (1-9)
 void control_relay(int relay_id, int state);
