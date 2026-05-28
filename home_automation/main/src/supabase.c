@@ -312,7 +312,7 @@ static void websocket_event_handler(void *handler_args, esp_event_base_t base, i
             break;
     }
 }
-
+ 
 void start_supabase_realtime(void) {
     char ws_url[1024];
     snprintf(ws_url, sizeof(ws_url), "wss://hbpwmqxwnnffgnncbgeq.supabase.co/realtime/v1/websocket?apikey=%s&vsn=1.0.0", SUPABASE_ANON_KEY);

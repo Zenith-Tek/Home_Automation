@@ -265,7 +265,7 @@ void update_device_status(void)
     .crt_bundle_attach = esp_crt_bundle_attach,
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
-    
+     
     char bearer[8192];
     snprintf(bearer, sizeof(bearer), "Bearer %s", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "apikey", SUPABASE_ANON_KEY);
