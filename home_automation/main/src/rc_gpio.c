@@ -83,7 +83,7 @@ void set_switch_gpios_in(void) {
     gpio_config(&io_conf);
 
     gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
-    xTaskCreate(gpio_event_task, "gpio_event_task", 4096, NULL, 10, NULL);
+    xTaskCreate(gpio_event_task, "gpio_event_task", 8192, NULL, 10, NULL);
 
     gpio_install_isr_service(0);
     for (int i = 0; i < 9; i++) {

@@ -94,6 +94,11 @@ void start_supabase_realtime(void) {
  * @brief Updates a specific relay state in the DB when a physical switch is toggled.
  */
 void update_relay_state_in_supabase(int relay_id, int new_state) {
+
+       if (esp_wifi_sta_get_ap_info(&(wifi_ap_record_t){0}) != ESP_OK) {
+        ESP_LOGW(TAG_DB, "No Internet. Skipping cloud update for Relay %d.", relay_id);
+        return;
+    }
     char url[256];
     // Target the specific row (id is 1-indexed)
     snprintf(url, sizeof(url), "%s/rest/v1/%s?id=eq.%d", SUPABASE_URL, TABLE_RELAYS, relay_id);
@@ -199,13 +204,15 @@ void send_device_health_to_supabase(void) {
         .url = url,
         .method = HTTP_METHOD_POST,
         .buffer_size = SB_HTTP_BUFFER_SIZE,
+        .buffer_size_tx = 4096,
+        .user_data = (void*)8192, 
         .crt_bundle_attach = esp_crt_bundle_attach,
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
     esp_http_client_set_header(client, "apikey", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "Content-Type", "application/json");
     esp_http_client_set_header(client, "Prefer", "resolution=merge-duplicates");
-    char bearer[4096];
+    char bearer[8192];
     snprintf(bearer, sizeof(bearer), "Bearer %s", SUPABASE_ANON_KEY);
     esp_http_client_set_header(client, "Authorization", bearer);
 
@@ -290,6 +297,18 @@ void load_relay_states_from_nvs(void) {
     nvs_handle_t my_handle;
     esp_err_t err = nvs_open(NVS_RELAY_NAMESPACE, NVS_READONLY, &my_handle);
     
+        // esp_err_t err = nvs_open(NVS_RELAY_NAMESPACE, NVS_READONLY, &my_handle);
+    
+    if (err == ESP_ERR_NVS_NOT_FOUND) {
+        // THIS IS THE FIX:
+        ESP_LOGW(TAG_DB, "First boot detected. Creating NVS storage with default states (0)...");
+        save_relay_states_to_nvs(); // Create the namespace by saving current 0s
+        return;
+    } else if (err != ESP_OK) {
+        ESP_LOGE(TAG_DB, "NVS Hardware Error (%s)", esp_err_to_name(err));
+        return;
+    }
+
     if (err == ESP_OK) {
         int found_count = 0;
         for (int i = 0; i < 9; i++) {

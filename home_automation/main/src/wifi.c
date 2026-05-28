@@ -43,7 +43,7 @@ void connect_wifi()
         
         do_provisioning();
         /* Wait for Wi-Fi connection */
-        xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, portMAX_DELAY);
+        // xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, portMAX_DELAY);
     } else {
         ESP_LOGI(TAG_WIFI, "Already provisioned, starting Wi-Fi STA");
         /* We don't need the manager as device is already provisioned,
@@ -53,7 +53,7 @@ void connect_wifi()
         wifi_init_sta();
         /* Wait for Wi-Fi connection */
         ESP_LOGI(TAG_WIFI,"WAITING FOR WIFI_CONNECTED_EVENT");
-        xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, WIFI_CONNECTED_EVENT_TIMEOUT);
+        // xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, WIFI_CONNECTED_EVENT_TIMEOUT);
     }
     esp_netif_ip_info_t ip_info;
     esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
